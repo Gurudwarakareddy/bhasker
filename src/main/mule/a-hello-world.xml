@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d77b9eb1-567e-48be-ae50-89408db46d37" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="a-hello-worldFlow" doc:id="e0e0fb8c-88f7-496a-8bb0-a803fa2b6cc9" >
+		<http:listener doc:name="Listener" doc:id="2887ef12-90e7-4c91-b0d8-5463a2bc5bf5" config-ref="HTTP_Listener_config" path="/hai"/>
+		<logger level="INFO" doc:name="Logger" doc:id="95f27b7c-a485-4ccf-a88f-61f3651652c9" />
+		<set-payload value="hello world" doc:name="Set Payload" doc:id="17301113-acd6-41e6-8125-e55810a3ef20" />
+		<set-payload value="hello world again" doc:name="Set Payload" doc:id="e6a08459-0329-4f15-afc3-83040745595e" />
+		<logger level="INFO" doc:name="Logger" doc:id="8cfbae82-b0ec-4934-bd44-229fde6fd235" />
+	</flow>
+</mule>
